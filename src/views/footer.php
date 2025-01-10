@@ -8,6 +8,6 @@
         <div class="footer-menu-right"></div>
     </div>
     <div class="copyright">
-        <p>&copy; XXXX - CDA 2025.4</p>
+        <p>&copy; XXX - CDA 2025.4</p>
     </div>
 </footer>
