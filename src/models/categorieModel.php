@@ -38,7 +38,7 @@ class Categorie
     // Create
     public function create(PDO $pdo)
     {
-        $sql = "INSERT INTO categories (nom) VALUES (:nom)";
+        $sql = "INSERT INTO categorie (nom) VALUES (:nom)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':nom', $this->nom);
         return $stmt->execute();
@@ -47,7 +47,7 @@ class Categorie
     // Read
     public static function read(PDO $pdo, $id)
     {
-        $sql = "SELECT * FROM categories WHERE id = :id";
+        $sql = "SELECT * FROM categorie WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
@@ -62,7 +62,7 @@ class Categorie
     // Update
     public function update(PDO $pdo)
     {
-        $sql = "UPDATE categories SET nom = :nom WHERE id = :id";
+        $sql = "UPDATE categorie SET nom = :nom WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $this->id);
         $stmt->bindParam(':nom', $this->nom);
@@ -72,7 +72,7 @@ class Categorie
     // Delete
     public static function delete(PDO $pdo, $id)
     {
-        $sql = "DELETE FROM categories WHERE id = :id";
+        $sql = "DELETE FROM categorie WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
@@ -81,7 +81,7 @@ class Categorie
     // Static Method to Get All Categories
     public static function getAll(PDO $pdo)
     {
-        $sql = "SELECT * FROM categories";
+        $sql = "SELECT * FROM categorie";
         $stmt = $pdo->query($sql);
         $categories = [];
 

@@ -1,3 +1,5 @@
+</body>
+</html>
 <footer>
     <div class="footer-menu">
         <div class="footer-menu-left">
