@@ -74,7 +74,7 @@ class CommandeProduit
     // Create
     public function create(PDO $pdo)
     {
-        $sql = "INSERT INTO commande_produits (id_commande, id_produit, quantite, prix_unitaire) VALUES (:id_commande, :id_produit, :quantite, :prix_unitaire)";
+        $sql = "INSERT INTO commande_produit (id_commande, id_produit, quantite, prix_unitaire) VALUES (:id_commande, :id_produit, :quantite, :prix_unitaire)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id_commande', $this->id_commande);
         $stmt->bindParam(':id_produit', $this->id_produit);
@@ -86,7 +86,7 @@ class CommandeProduit
     // Read
     public static function read(PDO $pdo, $id)
     {
-        $sql = "SELECT * FROM commande_produits WHERE id = :id";
+        $sql = "SELECT * FROM commande_produit WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
@@ -101,7 +101,7 @@ class CommandeProduit
     // Update
     public function update(PDO $pdo)
     {
-        $sql = "UPDATE commande_produits SET id_commande = :id_commande, id_produit = :id_produit, quantite = :quantite, prix_unitaire = :prix_unitaire WHERE id = :id";
+        $sql = "UPDATE commande_produit SET id_commande = :id_commande, id_produit = :id_produit, quantite = :quantite, prix_unitaire = :prix_unitaire WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $this->id);
         $stmt->bindParam(':id_commande', $this->id_commande);
@@ -114,7 +114,7 @@ class CommandeProduit
     // Delete
     public static function delete(PDO $pdo, $id)
     {
-        $sql = "DELETE FROM commande_produits WHERE id = :id";
+        $sql = "DELETE FROM commande_produit WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
@@ -123,7 +123,7 @@ class CommandeProduit
     // Static Method to Get All CommandeProduit
     public static function getAll(PDO $pdo)
     {
-        $sql = "SELECT * FROM commande_produits";
+        $sql = "SELECT * FROM commande_produit";
         $stmt = $pdo->query($sql);
         $commandeProduits = [];
 

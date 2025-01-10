@@ -86,7 +86,7 @@ class Utilisateur
     // Create
     public function create(PDO $pdo)
     {
-        $sql = "INSERT INTO utilisateurs (nom, prenom, email, mot_de_passe, role) VALUES (:nom, :prenom, :email, :mot_de_passe, :role)";
+        $sql = "INSERT INTO utilisateur (nom, prenom, email, mot_de_passe, role) VALUES (:nom, :prenom, :email, :mot_de_passe, :role)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':nom', $this->nom);
         $stmt->bindParam(':prenom', $this->prenom);
@@ -99,7 +99,7 @@ class Utilisateur
     // Read
     public static function read(PDO $pdo, $id)
     {
-        $sql = "SELECT * FROM utilisateurs WHERE id = :id";
+        $sql = "SELECT * FROM utilisateur WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
@@ -114,7 +114,7 @@ class Utilisateur
     // Update
     public function update(PDO $pdo)
     {
-        $sql = "UPDATE utilisateurs SET nom = :nom, prenom = :prenom, email = :email, mot_de_passe = :mot_de_passe, role = :role WHERE id = :id";
+        $sql = "UPDATE utilisateur SET nom = :nom, prenom = :prenom, email = :email, mot_de_passe = :mot_de_passe, role = :role WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $this->id);
         $stmt->bindParam(':nom', $this->nom);
@@ -128,7 +128,7 @@ class Utilisateur
     // Delete
     public static function delete(PDO $pdo, $id)
     {
-        $sql = "DELETE FROM utilisateurs WHERE id = :id";
+        $sql = "DELETE FROM utilisateur WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
@@ -137,7 +137,7 @@ class Utilisateur
     // Static Method to Get All Users
     public static function getAll(PDO $pdo)
     {
-        $sql = "SELECT * FROM utilisateurs";
+        $sql = "SELECT * FROM utilisateur";
         $stmt = $pdo->query($sql);
         $utilisateurs = [];
 

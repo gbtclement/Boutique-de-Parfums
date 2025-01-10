@@ -86,7 +86,7 @@ class Produit
     // Create
     public function create(PDO $pdo)
     {
-        $sql = "INSERT INTO produits (nom, description, prix, stock, id_categorie) VALUES (:nom, :description, :prix, :stock, :id_categorie)";
+        $sql = "INSERT INTO produit (nom, description, prix, stock, id_categorie) VALUES (:nom, :description, :prix, :stock, :id_categorie)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':nom', $this->nom);
         $stmt->bindParam(':description', $this->description);
@@ -99,7 +99,7 @@ class Produit
     // Read
     public static function read(PDO $pdo, $id)
     {
-        $sql = "SELECT * FROM produits WHERE id = :id";
+        $sql = "SELECT * FROM produit WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
@@ -114,7 +114,7 @@ class Produit
     // Update
     public function update(PDO $pdo)
     {
-        $sql = "UPDATE produits SET nom = :nom, description = :description, prix = :prix, stock = :stock, id_categorie = :id_categorie WHERE id = :id";
+        $sql = "UPDATE produit SET nom = :nom, description = :description, prix = :prix, stock = :stock, id_categorie = :id_categorie WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $this->id);
         $stmt->bindParam(':nom', $this->nom);
@@ -128,7 +128,7 @@ class Produit
     // Delete
     public static function delete(PDO $pdo, $id)
     {
-        $sql = "DELETE FROM produits WHERE id = :id";
+        $sql = "DELETE FROM produit WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
@@ -137,7 +137,7 @@ class Produit
     // Static Method to Get All Products
     public static function getAll(PDO $pdo)
     {
-        $sql = "SELECT * FROM produits";
+        $sql = "SELECT * FROM produit";
         $stmt = $pdo->query($sql);
         $produits = [];
 
