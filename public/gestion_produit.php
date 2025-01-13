@@ -27,6 +27,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Erreur lors de l'ajout du produit.";
     }
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'PATCH') {
+    // Récupérer les données envoyées
+    $input = file_get_contents('php://input');
+    $data = json_decode($input, true);
+
+    if (!$data || !isset($data['id'])) {
+        http_response_code(400); // Bad Request
+        echo json_encode(["error" => "ID du produit manquant ou données invalides."]);
+        exit;
+    }
+
+    $id = filter_var($data['id'], FILTER_VALIDATE_INT);
+
+    // Valider les champs à mettre à jour
+    $fieldsToUpdate = [];
+    $values = [];
+    foreach ($data as $key => $value) {
+        if (in_array($key, ['nom', 'description', 'prix', 'stock', 'id_categorie']) && $key !== 'id') {
+            $fieldsToUpdate[] = "`$key` = ?";
+            $values[] = $value;
+        }
+    }
+
+    if (empty($fieldsToUpdate)) {
+        http_response_code(400); // Bad Request
+        echo json_encode(["error" => "Aucun champ valide à mettre à jour."]);
+        exit;
+    }
+
+    // Ajouter l'ID pour la clause WHERE
+    $values[] = $id;
+
+    // Construire la requête SQL
+    $sql = "UPDATE produits SET " . implode(", ", $fieldsToUpdate) . " WHERE id = ?";
+    try {
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($values);
+
+        if ($stmt->rowCount() > 0) {
+            echo json_encode(["success" => true, "message" => "Produit mis à jour avec succès."]);
+        } else {
+            echo json_encode(["success" => false, "message" => "Aucun changement détecté ou produit introuvable."]);
+        }
+    } catch (Exception $e) {
+        http_response_code(500); // Internal Server Error
+        echo json_encode(["error" => "Erreur lors de la mise à jour : " . $e->getMessage()]);
+    }
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -79,5 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit">Ajouter</button>
         </form>
     <?php endif; ?>
+
+    
 </body>
 </html>
