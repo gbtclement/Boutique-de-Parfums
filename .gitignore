@@ -1,0 +1,5 @@
+# Ignorer les fichiers de configuration
+.env
+apache2.conf
+docker-compose.yml
+Dockerfile
