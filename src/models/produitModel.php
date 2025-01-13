@@ -147,5 +147,19 @@ class Produit
 
         return $produits;
     }
+    
+    public static function getAllByCategory(PDO $pdo, $id_categorie)
+    {
+        $sql = "SELECT * FROM produit WHERE id_categorie = :id_categorie";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':id_categorie', $id_categorie);
+        $stmt->execute();
+        $produits = [];
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $produits[] = new self($row['id'], $row['nom'], $row['description'], $row['prix'], $row['stock'], $row['id_categorie']);
+        }
+
+        return $produits;
+    }
 }
-?>
