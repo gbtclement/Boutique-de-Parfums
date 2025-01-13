@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
     if ($categorie->create($pdo)) {
         echo "La catégorie a été créée avec succès.";
 
-        header('Location: accueil.php');
+        header('Location: ../public/gestion_categ.php');
         exit();
     } else {
         echo "Une erreur est survenue lors de la création de la catégorie.";
@@ -32,7 +32,7 @@ if (isset($_POST['delete'])) {
 <?php include __DIR__ . '/../src/views/header.php'; ?>
 
 <div class="testCateg">
-    <form action="accueil.php" method="POST">
+    <form action="../public/gestion_categ.php" method="POST">
         <label for="nom">Nom de la catégorie :</label>
         <input type="text" name="nom" id="nom" required>
 
@@ -41,7 +41,7 @@ if (isset($_POST['delete'])) {
 </div>
 
 <h2>Liste des catégories</h2>
-<form action="accueil.php" method="POST">
+<form action="../public/gestion_categ.php" method="POST">
     <table>
         <thead>
             <tr>

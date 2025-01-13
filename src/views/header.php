@@ -9,11 +9,6 @@
 <body>
 <header>
     <div class="menu">
-        <div class="logo">
-            
-        </div>
-        <!-- Bouton hamburger pour le mobile -->
-        <button class="hamburger" id="hamburger">&#9776;</button>
         <div class="navigation" id="navigation">
             <a href="xxx.php">xxx</a>
             <a href="xxx.php">xxx</a>
