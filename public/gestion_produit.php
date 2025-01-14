@@ -10,7 +10,6 @@ $categories = Categorie::getAll($pdo);
 $selectedCategoryId = $_GET['categorie'] ?? null;
 $produits = $selectedCategoryId ? Produit::getAllByCategory($pdo, $selectedCategoryId) : [];
 
-<<<<<<< HEAD
 // Gestion de la méthode PATCH
 if (isset($_POST['update'])) {
     $id = $_POST['id']; 
@@ -35,8 +34,6 @@ if (isset($_POST['update'])) {
 }
 
 
-=======
->>>>>>> 956d8a6489c533c1ff6940a0c1b96b1a512237b3
 // Ajouter un produit si le formulaire est soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom = $_POST['nom'];
@@ -54,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Erreur lors de l'ajout du produit.";
     }
 }
-<<<<<<< HEAD
 
 if ($_SERVER['REQUEST_METHOD'] === 'PATCH') {
     // Récupérer les données envoyées
@@ -105,8 +101,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'PATCH') {
     }
     exit;
 }
-=======
->>>>>>> 956d8a6489c533c1ff6940a0c1b96b1a512237b3
 ?>
 
 <!DOCTYPE html>
@@ -158,7 +152,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'PATCH') {
             <input type="number" name="stock" id="stock" required><br>
             <button type="submit">Ajouter</button>
         </form>
-<<<<<<< HEAD
 
         <h2>Modifier un produit</h2>
         <form method="POST" action="gestion_produit.php">
@@ -191,8 +184,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'PATCH') {
 
         <?php endif; ?>
     
-=======
-    <?php endif; ?>
->>>>>>> 956d8a6489c533c1ff6940a0c1b96b1a512237b3
 </body>
 </html>

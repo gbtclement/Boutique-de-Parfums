@@ -73,8 +73,13 @@ footer {
     cursor: pointer;
 }
 
+.listCateg{
+    margin-bottom: 50px;
+}
+
 .creationCateg,
-.listCateg {
+.listCateg,
+.modifCateg {
     padding: 10px;
     background-color: beige;
 }

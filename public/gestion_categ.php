@@ -10,7 +10,7 @@ if (isset($_POST['update'])) {
     if (isset($id) && isset($nom)) {
         // Créer une instance de la classe Categorie
         $categorie = new Categorie($id, $nom);
-        
+
         // Appeler la méthode 'update' sur l'instance
         if ($categorie->update($pdo)) {
             echo "Catégorie mise à jour avec succès.";
@@ -87,39 +87,41 @@ if (isset($_POST['delete'])) {
                 </button>
             </form>
         </div>
+        <div class="modifCateg">
+            <h2>Modifier une catégorie</h2>
+            <form action="gestion_categ.php" method="POST">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Choisir</th>
+                            <th>Nom de la catégorie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        // Récupérer toutes les catégories
+                        $categories = Categorie::getAll($pdo);
+                        foreach ($categories as $categorie) {
+                            echo "<tr>";
+                            echo "<td><input type='radio' name='id' value='" . $categorie->getId() . "' required></td>";
+                            echo "<td>" . htmlspecialchars($categorie->getNom()) . "</td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+
+                <label for="nom">Nouveau nom :</label>
+                <input type="text" id="nom" name="nom" required><br><br>
+
+                <button type="submit" name="update">Envoyer la mise à jour</button>
+            </form>
+
+        </div>
     </div>
 </div>
 
-<h2>Modifier une catégorie</h2>
-<form action="gestion_categ.php" method="POST">
-    <table>
-        <thead>
-            <tr>
-                <th>Choisir</th>
-                <th>Nom de la catégorie</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            // Récupérer toutes les catégories
-            $categories = Categorie::getAll($pdo);
-            foreach ($categories as $categorie) {
-                echo "<tr>";
-                echo "<td><input type='radio' name='id' value='" . $categorie->getId() . "' required></td>";
-                echo "<td>" . htmlspecialchars($categorie->getNom()) . "</td>";
-                echo "</tr>";
-            }
-            ?>
-        </tbody>
-    </table>
 
-    <label for="nom">Nouveau nom :</label>
-    <input type="text" id="nom" name="nom" required><br><br>
-
-    <button type="submit" name="update">Envoyer la mise à jour</button>
-</form>
 
 
 <?php include __DIR__ . '/../src/views/footer.php'; ?>
-<?php include __DIR__ . '/../src/views/footer.php'; ?>
-
