@@ -12,9 +12,15 @@
     <header>
         <div class="menu">
             <div class="navigation" id="navigation">
-                <a href="../accueil.php">Accueil</a>
-                <a href="../public/catalogue.php">Catalogue</a>
-                <a href="../public/compte.php">Connexion</a>
+                <a href="../accueil.php" class="icon svg">
+                <img src="../assets/image/home.svg" alt="Supprimer" style="width: 30px; height: 30px; display:flex;">
+                </a>
+                <a href="../public/catalogue.php" class="icon svg">
+                <img src="../assets/image/catalogue.svg" alt="Supprimer" style="width: 30px; height: 30px; display:flex;">
+                </a>
+                <a href="../public/compte.php" class="icon svg">
+                <img src="../assets/image/account.svg" alt="Supprimer" style="width: 30px; height: 30px; display:flex;">
+                </a>
 
             </div>
         </div>
