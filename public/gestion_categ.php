@@ -66,7 +66,7 @@ if (isset($_POST['delete'])) {
 
 
         <div class="listCateg">
-            <h2>Liste des catégories</h2>
+            <h2>Supprimer des catégories</h2>
             <form action="../public/gestion_categ.php" method="POST">
                 <table>
                     <tbody>
@@ -91,12 +91,6 @@ if (isset($_POST['delete'])) {
             <h2>Modifier une catégorie</h2>
             <form action="gestion_categ.php" method="POST">
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Choisir</th>
-                            <th>Nom de la catégorie</th>
-                        </tr>
-                    </thead>
                     <tbody>
                         <?php
                         // Récupérer toutes les catégories
@@ -110,11 +104,13 @@ if (isset($_POST['delete'])) {
                         ?>
                     </tbody>
                 </table>
-
+                </br>
                 <label for="nom">Nouveau nom :</label>
-                <input type="text" id="nom" name="nom" required><br><br>
+                <input type="text" id="nom" name="nom" required></br>
 
-                <button type="submit" name="update">Envoyer la mise à jour</button>
+                <button type="submit" name="update">            
+                    <img src="../assets/image/pencil.svg" alt="Supprimer" style="width: 24px; height: 24px; display:flex;">
+                </button>
             </form>
 
         </div>
