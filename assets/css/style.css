@@ -1,189 +1,80 @@
-/* ANIMATION LANDING PAGE */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body {
+    margin: 0;
 }
 
-.accueil .container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  background: linear-gradient(to bottom right, #f9fafb, #ffffff);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.menu {
+    display: flex;
+    flex-direction: row-reverse;
 }
 
-/* Balayage */
-.accueil .sweep {
-  position: absolute;
-  inset: 0;
-  background: #111827;
-  transform: translateX(0);
-  animation: sweep 1s ease-out 0.3s forwards;
+.menu .navigation{
+    display: flex;
+    gap: 10px;
 }
 
-.accueil .sweep::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: rgba(255, 255, 255, 0.5);
-  filter: blur(2px);
+.menu .navigation a{
+    text-decoration: none;
 }
 
-.accueil .sweep::before {
-  content: '';
-  position: absolute;
-  right: -4px;
-  top: 0;
-  bottom: 0;
-  width: 100px;
-  background: linear-gradient(to right, #111827, transparent);
+.marginPage {
+    margin-inline: 5%;
+    margin-block: 50px;
 }
 
-/* Cercles d'ambiance */
-.accueil .ambient-circle {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.05;
-  background: radial-gradient(circle at center, black, transparent);
-  animation: pulse 20s infinite alternate ease-in-out;
+h1,
+h2,
+h3 {
+    margin: 0;
 }
 
-/* Logo */
-.accueil .logo-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  animation: logoMove 0.8s ease-out 1.7s forwards;
+header,
+footer {
+    padding-inline: 5% !important;
+    padding-block: 20px;
 }
 
-.accueil .logo-circle {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: linear-gradient(to bottom right, #111827, #374151);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+header,
+footer {
+    background-color: gray;
 }
 
-.accueil .logo-text {
-  font-size: 24px;
-  font-weight: 600;
-  background: linear-gradient(to right, #111827, #374151);
-  -webkit-background-clip: text;
-  color: transparent;
+.gestionCateg h1 {
+    margin-bottom: 50px;
 }
 
-.accueil .logo-shine {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transform: skewX(-12deg) translateX(-200%);
-  animation: shine 3s infinite;
+.gestionCateg h2 {
+    margin-bottom: 20px;
 }
 
-/* Contenu */
-.accueil .content {
-  position: relative;
-  width: 100%;
-  max-width: 42rem;
-  text-align: center;
-  padding: 2rem;
-  opacity: 0;
-  transform: translateY(1rem);
-  animation: fadeIn 1s ease-out 2s forwards;
+.gestionCateg .creationCateg {
+    margin-bottom: 50px;
 }
 
-.accueil .content-inner {
-  margin: 0 auto;
+.gestionCateg .creationCateg form {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    gap: 5px;
 }
 
-.accueil .title {
-  font-size: 3.75rem;
-  font-weight: 300;
-  overflow: hidden;
+.gestionCateg .creationCateg form button:hover {
+    background-color: lightgreen;
+    cursor: pointer;
 }
 
-.accueil .title span {
-  display: block;
-  transform: translateY(100%);
-  animation: slideUp 0.8s ease-out 2.2s forwards;
+.gestionCateg .listCateg button {
+    margin-top: 10px;
+    width: 40px;
+    height: 40px;
 }
 
-.accueil .subtitle {
-  font-size: 2.5rem;
-  margin-top: 0.5rem;
-  transform: translateY(100%);
-  animation: slideUp 0.8s ease-out 2.4s forwards;
+.gestionCateg .listCateg button:hover {
+    background-color: lightcoral;
+    cursor: pointer;
 }
 
-.accueil .text {
-  font-size: 1.25rem;
-  color: #4b5563;
-  margin-top: 1.5rem;
-}
-
-.accueil .button {
-  margin-top: 2rem;
-  padding: 0.75rem 2rem;
-  background: linear-gradient(to right, #111827, #374151);
-  color: white;
-  border: none;
-  border-radius: 9999px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s;
-  opacity: 0;
-  animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 2.8s forwards;
-}
-
-.accueil .button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-}
-
-/* Animations */
-@keyframes sweep {
-  to { transform: translateX(100%); }
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 0.05; }
-  100% { transform: scale(1.1); opacity: 0.1; }
-}
-
-@keyframes logoMove {
-  to {
-      top: 24px;
-      left: 24px;
-      transform: translate(0, 0) scale(0.75);
-  }
-}
-
-@keyframes shine {
-  0% { transform: skewX(-12deg) translateX(-200%); }
-  100% { transform: skewX(-12deg) translateX(200%); }
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideUp {
-  to { transform: translateY(0); }
-}
-
-@keyframes bounceIn {
-  0% { transform: scale(0); opacity: 0; }
-  50% { transform: scale(1.1); opacity: 0.7; }
-  100% { transform: scale(1); opacity: 1; }
+.creationCateg,
+.listCateg {
+    padding: 10px;
+    background-color: beige;
 }
