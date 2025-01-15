@@ -1,9 +1,9 @@
 <?php
-include __DIR__ . '/../src/views/database.php';
-include __DIR__ . '/../src/views/header.php';
+include '../database/database.php';
+include 'header.php';
 
-include __DIR__ . '/../src/models/categorieModel.php';
-include __DIR__ . '/../src/models/produitModel.php';
+include '../models/categorieModel.php';
+include '../models/produitModel.php';
 
 $categories = Categorie::getAll($pdo);
 $categorieId = isset($_GET['categorie']) ? (int)$_GET['categorie'] : null;
@@ -39,4 +39,4 @@ $produits = $categorieId ? Produit::getAllByCategory($pdo, $categorieId) : Produ
         <?php endif; ?>
     </div>
 </div>
-<?php include __DIR__ . '/../src/views/footer.php'; ?>
+<?php include 'footer.php'; ?>
