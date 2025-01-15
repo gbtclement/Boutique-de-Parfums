@@ -1,31 +1,38 @@
+
 <?php
-// Redirige vers accueil.php
-header("Location: accueil.php");
-exit(); ?>
- <?php
-/*
-require_once __DIR__ . '/src/controller/gestionCategorieController.php';
+// Inclure les dépendances
+require_once __DIR__ . '/src/controllers/gestionCategorieController.php';
 
-$action = $_GET['action'] ?? 'list';
+// Récupérer l'action depuis l'URL
+$action = $_GET['action'] ?? 'home';
 
-// Appelle la méthode correspondante dans le contrôleur
+// Routage des actions
 switch ($action) {
+    case 'home':
+        header("Location: accueil.php");
+        exit();
+        break;
+
     case 'list':
-        listCategories();
+        listCategories($pdo);
         break;
+
     case 'create':
-        createCategory();
+        createCategory($pdo);
         break;
+
     case 'update':
-        updateCategory();
+        updateCategory($pdo);
         break;
+
     case 'delete':
-        deleteCategories();
+        deleteCategories($pdo);
         break;
+
     default:
         echo "Action inconnue.";
         break;
 }
-*/
 ?>
+
 
