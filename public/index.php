@@ -1,7 +1,7 @@
 
 <?php
 // Inclure les dépendances
-require_once __DIR__ . '/src/controllers/gestionCategorieController.php';
+require_once '../src/controllers/categorieController.php';
 
 // Récupérer l'action depuis l'URL
 $action = $_GET['action'] ?? 'home';
@@ -9,23 +9,23 @@ $action = $_GET['action'] ?? 'home';
 // Routage des actions
 switch ($action) {
     case 'home':
-        header("Location: accueil.php");
+        header("Location: ../src/views/accueil.php");
         exit();
         break;
 
-    case 'list':
+    case 'listCategorie':
         listCategories($pdo);
         break;
 
-    case 'create':
+    case 'createCategorie':
         createCategory($pdo);
         break;
 
-    case 'update':
+    case 'updateCategorie':
         updateCategory($pdo);
         break;
 
-    case 'delete':
+    case 'deleteCategories':
         deleteCategories($pdo);
         break;
 

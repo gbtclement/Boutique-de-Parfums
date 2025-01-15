@@ -1,6 +1,6 @@
 <?php 
 
-include __DIR__ . '/../views/database.php';
+include __DIR__ . '/../database/database.php';
 include __DIR__ . '/../models/categorieModel.php';
 
 $success = null;
@@ -15,7 +15,7 @@ function createCategory($pdo) {
         if ($nom) {
             $categorie = new Categorie(null, $nom);
             if ($categorie->create($pdo)) {
-                header('Location: index.php?action=list');
+                header('Location: index.php?action=listCategorie');
                 exit();
             } else {
                 $error = "Une erreur est survenue lors de la création de la catégorie.";
@@ -36,7 +36,7 @@ function updateCategory($pdo) {
         if ($id && $nom) {
             $categorie = new Categorie($id, $nom);
             if ($categorie->update($pdo)) {
-                header('Location: index.php?action=list');
+                header('Location: index.php?action=listCategorie');
                 exit();
             } else {
                 $error = "Une erreur est survenue lors de la mise à jour de la catégorie.";
@@ -56,7 +56,7 @@ function deleteCategories($pdo) {
             foreach ($categoriesToDelete as $categoryId) {
                 Categorie::delete($pdo, $categoryId);
             }
-            header('Location: index.php?action=list');
+            header('Location: index.php?action=listCategorie');
             exit();
         } else {
             $error = "Veuillez sélectionner au moins une catégorie à supprimer.";
@@ -68,7 +68,7 @@ function deleteCategories($pdo) {
 function listCategories($pdo) {
     global $success, $error; // Utilisation des variables globales
     $categories = Categorie::getAll($pdo);
-    include __DIR__ . '/../views/gestionCategorieView.php';
+    include __DIR__ . '/../views/categorieView.php';
 }
 
 ?>

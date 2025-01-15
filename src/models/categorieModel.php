@@ -35,6 +35,7 @@ class Categorie
     }
 
     // CRUD Methods
+    
     // Create
     public function create(PDO $pdo)
     {

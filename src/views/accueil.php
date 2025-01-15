@@ -42,7 +42,7 @@
                     <a class="button" href="catalogue.php">Explorer</a>
                 </div>
                 </br>
-                <a href="gestion_categ.php" class="compte option admin">Gestion des catégories</a>
+                <a href="../../public/index.php?action=listCategorie" class="compte option admin">Gestion des catégories</a>
                 <a href="gestion_produit.php" class="compte option admin">Gestion des produits</a>
             </div>
         </div>
