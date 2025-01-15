@@ -1,6 +1,6 @@
 <?php
 // Redirige vers accueil.php
-header("Location: accueil.php");
+header("Location: src/views/accueil.php");
 exit(); ?>
  <?php
 /*

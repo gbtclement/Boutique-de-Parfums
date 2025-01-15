@@ -1,6 +1,6 @@
 <?php
-include __DIR__ . '/../src/views/database.php';
-include __DIR__ . '/../src/models/categorieModel.php';
+include '../database/database.php';
+include '../models/categorieModel.php';
 session_start(); // Démarre la session
 
 // Traitement du formulaire de connexion
