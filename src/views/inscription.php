@@ -1,6 +1,6 @@
 <?php
-include __DIR__ . '/../src/views/database.php';
-include __DIR__ . '/../src/models/categorieModel.php';
+include '../database/database.php';
+include '../models/categorieModel.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Connexion à la base de données (exemple PDO)
