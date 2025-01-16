@@ -53,54 +53,67 @@ footer{
     filter: invert(1);
 }
 
-.gestionCateg h1 {
+.gestionCateg h1,
+.gestionProduit h1 {
     margin-bottom: 50px;
 }
 
-.gestionCateg h2 {
+.gestionCateg h2,
+.gestionProduit h2 {
     margin-bottom: 20px;
 }
 
-.gestionCateg .creationCateg {
+.gestionCateg .creationCateg,
+.gestionProduit .creationProduit {
     margin-bottom: 50px;
 }
 
-.gestionCateg .creationCateg form {
+.gestionCateg .creationCateg form,
+.gestionProduit .creationProduit form {
     display: flex;
     flex-direction: row;
     width: fit-content;
     gap: 5px;
 }
 
-.gestionCateg .creationCateg form button:hover {
+.gestionCateg .creationCateg form button:hover,
+.gestionProduit .creationProduit form button:hover {
     background-color: lightgreen;
     cursor: pointer;
 }
 
 .gestionCateg .listCateg button,
-.gestionCateg .modifCateg button{
+.gestionCateg .modifCateg button,
+.gestionProduit .listProduit button,
+.gestionProduit .modifProduit button{
     margin-top: 10px;
     width: 40px;
     height: 40px;
 }
 
-.gestionCateg .listCateg button:hover {
+.gestionCateg .listCateg button:hover,
+.gestionProduit .modifProduit button:hover {
     background-color: lightcoral;
     cursor: pointer;
 }
 
-.gestionCateg .modifCateg button:hover{
+.gestionCateg .modifCateg button:hover,
+.gestionProduit .modifCateg button:hover{
     cursor: pointer;
     background-color: lightskyblue;
 }
 
-.listCateg{
+.listCateg,
+.listProduit{
     margin-bottom: 50px;
 }
 
 .creationCateg,
 .listCateg,
-.modifCateg {
+.modifCateg,
+.creationProduit,
+.listProduit,
+.modifProduit {
     padding: 20px;
     background-color: #eaeaea;
     border-radius: 10px;
