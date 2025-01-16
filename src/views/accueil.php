@@ -10,7 +10,7 @@
 
 <body>
     <div class="header">
-        <a href="public/compte.php" class="compte-link">Connexion</a>
+        <a href="connexion.php" class="compte-link">Connexion</a>
     </div>
     <div class="accueil">
         <div class="container">

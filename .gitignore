@@ -1,1 +1,4 @@
 # Ignorer les fichiers de configuration
+/vendor/
+composer.json
+composer.lock
