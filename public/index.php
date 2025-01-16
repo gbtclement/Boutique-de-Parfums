@@ -1,4 +1,3 @@
-
 <?php
 // Inclure les dépendances
 require_once '../src/controllers/categorieController.php';
@@ -17,25 +16,13 @@ switch ($action) {
     case 'listCategorie':
         listCategory($pdo);
         break;
-    
-    case 'listProduits':
-        listProduits($pdo);
-        break;
 
     case 'createCategorie':
         createCategory($pdo);
         break;
 
-    case 'createProduit':
-        createProduit($pdo);
-        break;
-
     case 'updateCategorie':
         updateCategory($pdo);
-        break;
-
-    case 'updateProduit':
-        updateProduit($pdo);
         break;
 
     case 'deleteCategories':
@@ -63,5 +50,3 @@ switch ($action) {
         break;
 }
 ?>
-
-
