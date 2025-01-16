@@ -88,7 +88,7 @@ if (isset($_GET['delete'])) {
     <ul>
         <?php foreach ($categories as $categorie): ?>
             <li>
-                <a href="?categorie=<?= $categorie->getId(); ?>">
+                <a href="?test=<?= $categorie->getId(); ?>">
                     <?= htmlspecialchars($categorie->getNom()); ?>
                 </a>
             </li>

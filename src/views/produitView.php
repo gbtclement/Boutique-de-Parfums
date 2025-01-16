@@ -1,5 +1,6 @@
 <?php require_once __DIR__ . '/../controllers/produitController.php'; ?>
 
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -21,7 +22,7 @@
     <ul>
         <?php foreach ($categories as $categorie): ?>
             <li>
-                <a href="index.php?action=listProduits=<?= $categorie->getId(); ?>">
+                <a href="./index.php?action=listCategories=<?= $categorie->getId(); ?>">
                     <?= htmlspecialchars($categorie->getNom()); ?>
                 </a>
             </li>
