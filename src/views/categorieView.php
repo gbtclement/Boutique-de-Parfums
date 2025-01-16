@@ -45,7 +45,7 @@
                     </tbody>
                 </table>
                 <button type="submit" name="delete">
-                    <img src="../assets/image/trash.svg" alt="Supprimer" style="width: 24px; height: 24px;">
+                    <img src="../public/assets/image/trash.svg" alt="Supprimer" style="width: 24px; height: 24px;">
                 </button>
             </form>
         </div>
@@ -58,7 +58,7 @@
                 <input type="text" id="editNom" name="nom" required>
                 <input type="hidden" id="editId" name="id">
                 <button type="submit" name="update">
-                    <img src="../assets/image/pencil.svg" alt="Modifier" style="width: 24px; height: 24px;">
+                    <img src="../public/assets/image/pencil.svg" alt="Modifier" style="width: 24px; height: 24px;">
                 </button>
             </form>
         </div>
