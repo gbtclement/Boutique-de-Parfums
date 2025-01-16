@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/styleHome.css">
+    <link rel="stylesheet" href="../../public/assets/css/styleHome.css">
     <title>Boutique de Parfums</title>
 </head>
 
@@ -42,8 +42,8 @@
                     <a class="button" href="catalogue.php">Explorer</a>
                 </div>
                 </br>
-                <a href="../../public/index.php?action=listCategories" class="compte option admin">Gestion des catégories</a>
-                <a href="../../public/index.php?action=listProduits" class="compte option admin">Gestion des produits</a>
+                <a href="../../public/index.php?action=listCategorie" class="compte option admin">Gestion des catégories</a>
+                <a href="../../public/index.php?action=listProduit" class="compte option admin">Gestion des produits</a>
             </div>
         </div>
     </div>

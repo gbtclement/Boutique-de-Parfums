@@ -14,8 +14,8 @@ switch ($action) {
         exit();
         break;
 
-    case 'listCategories':
-        listCategories($pdo);
+    case 'listCategorie':
+        listCategory($pdo);
         break;
     
     case 'listProduits':
@@ -39,11 +39,23 @@ switch ($action) {
         break;
 
     case 'deleteCategories':
-        deleteCategories($pdo);
+        deleteCategory($pdo);
+        break;
+
+    case 'listProduit':
+        listProduct($pdo);
+        break;
+
+    case 'createProduit':
+        createProduct($pdo);
+        break;
+
+    case 'updateProduit':
+        updateProduct($pdo);
         break;
 
     case 'deleteProduit':
-        deleteProduit($pdo);
+        deleteProduct($pdo);
         break;
 
     default:

@@ -5,9 +5,9 @@ include 'header.php';
 include '../models/categorieModel.php';
 include '../models/produitModel.php';
 
-$categories = Categorie::getAll($pdo);
+$categories = Categorie::getAllCategory($pdo);
 $categorieId = isset($_GET['categorie']) ? (int)$_GET['categorie'] : null;
-$produits = $categorieId ? Produit::getAllByCategory($pdo, $categorieId) : Produit::getAll($pdo);
+$produits = $categorieId ? Produit::getAllByCategory($pdo, $categorieId) : Produit::getAllProduct($pdo);
 ?>
 <div class="container">
     <h1>Catalogue</h1>
