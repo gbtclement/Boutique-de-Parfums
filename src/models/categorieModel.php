@@ -37,7 +37,7 @@ class Categorie
     // CRUD Methods
     
     // Create
-    public function create(PDO $pdo)
+    public function createCategory(PDO $pdo)
     {
         $sql = "INSERT INTO categorie (nom) VALUES (:nom)";
         $stmt = $pdo->prepare($sql);
@@ -46,7 +46,7 @@ class Categorie
     }
 
     // Read
-    public static function read(PDO $pdo, $id)
+    public static function readCategory(PDO $pdo, $id)
     {
         $sql = "SELECT * FROM categorie WHERE id = :id";
         $stmt = $pdo->prepare($sql);
@@ -61,7 +61,7 @@ class Categorie
     }
 
     // Update
-    public function update(PDO $pdo)
+    public function updateCategory(PDO $pdo)
     {
         $sql = "UPDATE categorie SET nom = :nom WHERE id = :id";
         $stmt = $pdo->prepare($sql);
@@ -71,7 +71,7 @@ class Categorie
     }
 
     // Delete
-    public static function delete(PDO $pdo, $id)
+    public static function deleteCategory(PDO $pdo, $id)
     {
         $sql = "DELETE FROM categorie WHERE id = :id";
         $stmt = $pdo->prepare($sql);
@@ -80,7 +80,7 @@ class Categorie
     }
 
     // Static Method to Get All Categories
-    public static function getAll(PDO $pdo)
+    public static function getAllCategory(PDO $pdo)
     {
         $sql = "SELECT * FROM categorie";
         $stmt = $pdo->query($sql);

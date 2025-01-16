@@ -84,7 +84,7 @@ class Produit
 
     // CRUD Methods
     // Create
-    public function create(PDO $pdo)
+    public function createProduct(PDO $pdo)
     {
         $sql = "INSERT INTO produit (nom, description, prix, stock, id_categorie) VALUES (:nom, :description, :prix, :stock, :id_categorie)";
         $stmt = $pdo->prepare($sql);
@@ -97,7 +97,7 @@ class Produit
     }
 
     // Read
-    public static function read(PDO $pdo, $id)
+    public static function readProduct(PDO $pdo, $id)
     {
         $sql = "SELECT * FROM produit WHERE id = :id";
         $stmt = $pdo->prepare($sql);
@@ -112,7 +112,7 @@ class Produit
     }
 
     // Update
-    public function update(PDO $pdo)
+    public function updateProduct(PDO $pdo)
     {
         $sql = "UPDATE produit SET nom = :nom, description = :description, prix = :prix, stock = :stock, id_categorie = :id_categorie WHERE id = :id";
         $stmt = $pdo->prepare($sql);
@@ -126,7 +126,7 @@ class Produit
     }
 
     // Delete
-    public static function delete(PDO $pdo, $id)
+    public static function deleteProduct(PDO $pdo, $id)
     {
         $sql = "DELETE FROM produit WHERE id = :id";
         $stmt = $pdo->prepare($sql);
@@ -135,7 +135,7 @@ class Produit
     }
 
     // Static Method to Get All Products
-    public static function getAll(PDO $pdo)
+    public static function getAllProduct(PDO $pdo)
     {
         $sql = "SELECT * FROM produit";
         $stmt = $pdo->query($sql);
@@ -147,7 +147,7 @@ class Produit
 
         return $produits;
     }
-    
+
     public static function getAllByCategory(PDO $pdo, $id_categorie)
     {
         $sql = "SELECT * FROM produit WHERE id_categorie = :id_categorie";

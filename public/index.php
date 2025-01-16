@@ -2,6 +2,7 @@
 <?php
 // Inclure les dépendances
 require_once '../src/controllers/categorieController.php';
+require_once '../src/controllers/produitController.php';
 
 // Récupérer l'action depuis l'URL
 $action = $_GET['action'] ?? 'home';
@@ -14,7 +15,7 @@ switch ($action) {
         break;
 
     case 'listCategorie':
-        listCategories($pdo);
+        listCategory($pdo);
         break;
 
     case 'createCategorie':
@@ -26,7 +27,23 @@ switch ($action) {
         break;
 
     case 'deleteCategories':
-        deleteCategories($pdo);
+        deleteCategory($pdo);
+        break;
+
+    case 'listProduit':
+        listProduct($pdo);
+        break;
+
+    case 'createProduit':
+        createProduct($pdo);
+        break;
+
+    case 'updateProduit':
+        updateProduct($pdo);
+        break;
+
+    case 'deleteProduit':
+        deleteProduct($pdo);
         break;
 
     default:

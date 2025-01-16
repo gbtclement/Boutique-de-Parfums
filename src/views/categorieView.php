@@ -21,7 +21,7 @@
         <!-- Liste des catégories avec option de suppression -->
         <div class="listCateg">
             <h2>Supprimer ou modifier des catégories</h2>
-            <form action="index.php?action=deleteCategories" method="POST" id="deleteForm"> <!-- Action mise à jour -->
+            <form action="index.php?action=deleteCategorie" method="POST" id="deleteForm"> <!-- Action mise à jour -->
                 <table>
                     <thead>
                         <tr>

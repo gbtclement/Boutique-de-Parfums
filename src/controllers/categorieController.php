@@ -14,7 +14,7 @@ function createCategory($pdo) {
 
         if ($nom) {
             $categorie = new Categorie(null, $nom);
-            if ($categorie->create($pdo)) {
+            if ($categorie->createCategory($pdo)) {
                 header('Location: index.php?action=listCategorie');
                 exit();
             } else {
@@ -35,7 +35,7 @@ function updateCategory($pdo) {
 
         if ($id && $nom) {
             $categorie = new Categorie($id, $nom);
-            if ($categorie->update($pdo)) {
+            if ($categorie->updateCategory($pdo)) {
                 header('Location: index.php?action=listCategorie');
                 exit();
             } else {
@@ -48,13 +48,13 @@ function updateCategory($pdo) {
 }
 
 // Supprimer des catégories
-function deleteCategories($pdo) {
+function deleteCategory($pdo) {
     global $error; // Utilisation de la variable globale
     if (isset($_POST['delete'])) {
         $categoriesToDelete = $_POST['categories'] ?? [];
         if (!empty($categoriesToDelete)) {
             foreach ($categoriesToDelete as $categoryId) {
-                Categorie::delete($pdo, $categoryId);
+                Categorie::deleteCategory($pdo, $categoryId);
             }
             header('Location: index.php?action=listCategorie');
             exit();
@@ -65,9 +65,9 @@ function deleteCategories($pdo) {
 }
 
 // Récupérer toutes les catégories pour l'affichage
-function listCategories($pdo) {
+function listCategory($pdo) {
     global $success, $error; // Utilisation des variables globales
-    $categories = Categorie::getAll($pdo);
+    $categories = Categorie::getAllCategory($pdo);
     include __DIR__ . '/../views/categorieView.php';
 }
 

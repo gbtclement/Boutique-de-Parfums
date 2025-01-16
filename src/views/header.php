@@ -32,3 +32,5 @@ session_start(); // Doit être au début
 </body>
 
 </html>
+
+<script src="../../public/assets/js/script.js"></script>
