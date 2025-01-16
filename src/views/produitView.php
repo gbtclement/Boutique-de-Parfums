@@ -36,7 +36,7 @@
         <!-- Liste des produits avec options de suppression -->
         <div class="listProduit">
             <h2>Supprimer ou modifier des produits</h2>
-            <form action="index.php?action=deleteProducts" method="POST" id="deleteForm">
+            <form action="index.php?action=deleteProduit" method="POST" id="deleteForm">
                 <table>
                     <thead>
                         <tr>
