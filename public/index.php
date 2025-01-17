@@ -3,13 +3,11 @@
 require_once '../src/controllers/categorieController.php';
 require_once '../src/controllers/produitController.php';
 require_once '../src/controllers/utilisateurController.php';
-require '../vendor/autoload.php';
+require_once '../src/controllers/articleController.php';
+
+new ArticleController();
 
 use src\controllers\MongoController;
-
-// Test de la connexion
-$controller = new MongoController();
-$controller->testConnection();
 
 // Récupérer l'action depuis l'URL
 $action = $_GET['action'] ?? 'home';
@@ -51,6 +49,22 @@ switch ($action) {
 
     case 'deleteProduit':
         deleteProduct($pdo);
+        break;
+
+    case 'listArticle':
+        listArticles($pdo);
+        break;
+    
+    case 'createArticle':
+        createArticle($pdo);
+        break;
+    
+    case 'updateArticle':
+        updateArticle($pdo);
+        break;
+    
+    case 'deleteArticle':
+        deleteArticle($pdo);
         break;
 
     case 'connexionUtilisateur':
