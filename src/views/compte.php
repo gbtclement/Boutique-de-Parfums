@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 if (isset($_POST['logout'])) {
     session_unset();
     session_destroy();
-    header("Location: src/views/accueil.php");
+    header("Location: accueil.php");
     exit();
 }
 

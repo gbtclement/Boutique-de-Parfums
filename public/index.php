@@ -1,9 +1,15 @@
-
 <?php
 // Inclure les dépendances
 require_once '../src/controllers/categorieController.php';
 require_once '../src/controllers/produitController.php';
 require_once '../src/controllers/utilisateurController.php';
+require '../vendor/autoload.php';
+
+use src\controllers\MongoController;
+
+// Test de la connexion
+$controller = new MongoController();
+$controller->testConnection();
 
 // Récupérer l'action depuis l'URL
 $action = $_GET['action'] ?? 'home';
@@ -66,5 +72,3 @@ switch ($action) {
         break;
 }
 ?>
-
-

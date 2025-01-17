@@ -1,0 +1,37 @@
+<?php
+
+namespace src\Controllers;
+
+use src\Models\MongoConnection;
+
+class MongoController
+{
+    private $connection;
+
+    public function __construct()
+    {
+        $uri = "mongodb://localhost:27017"; // Remplacez par votre URI MongoDB
+        $dbName = "votre_database"; // Remplacez par le nom de votre base
+        $this->connection = new MongoConnection($uri, $dbName);
+    }
+
+    public function testConnection()
+    {
+        try {
+            $this->connection->connect();
+            echo "Connexion réussie à la base MongoDB.<br>";
+
+            // Exemple d'utilisation
+            $database = $this->connection->getDatabase();
+            echo "Liste des collections dans la base '{$database->getDatabaseName()}':<br>";
+            foreach ($database->listCollections() as $collection) {
+                echo "- " . $collection->getName() . "<br>";
+            }
+
+            // Déconnexion explicite (facultatif)
+            $this->connection->disconnect();
+        } catch (\Exception $e) {
+            echo "Erreur : " . $e->getMessage();
+        }
+    }
+}
