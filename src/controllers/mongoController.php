@@ -10,8 +10,8 @@ class MongoController
 
     public function __construct()
     {
-        $uri = "mongodb://localhost:27017"; // Remplacez par votre URI MongoDB
-        $dbName = "votre_database"; // Remplacez par le nom de votre base
+        $uri = "mongodb://admin:admin@localhost:27017/admin";
+        $dbName = "boutiqueDeParfums"; 
         $this->connection = new MongoConnection($uri, $dbName);
     }
 
