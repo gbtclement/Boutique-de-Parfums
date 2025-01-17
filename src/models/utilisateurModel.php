@@ -84,7 +84,7 @@ class Utilisateur
 
     // CRUD Methods
     // Create
-    public function create(PDO $pdo)
+    public function createUtilisateur(PDO $pdo)
     {
         $sql = "INSERT INTO utilisateur (nom, prenom, email, mot_de_passe, role) VALUES (:nom, :prenom, :email, :mot_de_passe, :role)";
         $stmt = $pdo->prepare($sql);
@@ -97,7 +97,7 @@ class Utilisateur
     }
 
     // Read
-    public static function read(PDO $pdo, $id)
+    public static function readUtilisateur(PDO $pdo, $id)
     {
         $sql = "SELECT * FROM utilisateur WHERE id = :id";
         $stmt = $pdo->prepare($sql);
@@ -112,7 +112,7 @@ class Utilisateur
     }
 
     // Update
-    public function update(PDO $pdo)
+    public function updateUtilisateur(PDO $pdo)
     {
         $sql = "UPDATE utilisateur SET nom = :nom, prenom = :prenom, email = :email, mot_de_passe = :mot_de_passe, role = :role WHERE id = :id";
         $stmt = $pdo->prepare($sql);
@@ -126,7 +126,7 @@ class Utilisateur
     }
 
     // Delete
-    public static function delete(PDO $pdo, $id)
+    public static function deleteUtilisateur(PDO $pdo, $id)
     {
         $sql = "DELETE FROM utilisateur WHERE id = :id";
         $stmt = $pdo->prepare($sql);
@@ -135,7 +135,7 @@ class Utilisateur
     }
 
     // Static Method to Get All Users
-    public static function getAll(PDO $pdo)
+    public static function getAllUtilisateur(PDO $pdo)
     {
         $sql = "SELECT * FROM utilisateur";
         $stmt = $pdo->query($sql);

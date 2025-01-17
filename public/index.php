@@ -2,6 +2,7 @@
 // Inclure les dépendances
 require_once '../src/controllers/categorieController.php';
 require_once '../src/controllers/produitController.php';
+require_once '../src/controllers/utilisateurController.php';
 require '../vendor/autoload.php';
 
 use src\controllers\MongoController;
@@ -50,6 +51,20 @@ switch ($action) {
 
     case 'deleteProduit':
         deleteProduct($pdo);
+        break;
+
+    case 'connexionUtilisateur':
+        loginUser($pdo);
+        break;
+
+    case 'inscriptionUtilisateur':
+        registerUser($pdo);
+        break;
+
+    case 'compte':
+        break;
+
+    case 'catalogue':
         break;
 
     default:
