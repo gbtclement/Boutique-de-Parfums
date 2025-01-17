@@ -7,20 +7,20 @@ body {
     flex-direction: row-reverse;
 }
 
-.menu .navigation{
+.menu .navigation {
     display: flex;
     gap: 10px;
 }
 
-.menu .navigation .icon.svg{
+.menu .navigation .icon.svg {
     transition: 0.3s;
 }
 
-.menu .navigation .icon.svg:hover{
+.menu .navigation .icon.svg:hover {
     transform: scale(1.1);
 }
 
-.menu .navigation a{
+.menu .navigation a {
     text-decoration: none;
 }
 
@@ -41,15 +41,15 @@ footer {
     padding-block: 20px;
 }
 
-header{
+header {
     background: linear-gradient(to right, #111827, #374151);
 }
 
-footer{
+footer {
     background: #374151;
 }
 
-.icon.svg{
+.icon.svg {
     filter: invert(1);
 }
 
@@ -69,7 +69,8 @@ footer{
 }
 
 .gestionCateg .creationCateg form,
-.gestionProduit .creationProduit form {
+.gestionProduit .creationProduit form,
+.gestionProduit .modifProduit form {
     display: flex;
     flex-direction: row;
     width: fit-content;
@@ -85,7 +86,7 @@ footer{
 .gestionCateg .listCateg button,
 .gestionCateg .modifCateg button,
 .gestionProduit .listProduit button,
-.gestionProduit .modifProduit button{
+.gestionProduit .modifProduit button {
     margin-top: 10px;
     width: 40px;
     height: 40px;
@@ -98,14 +99,24 @@ footer{
 }
 
 .gestionCateg .modifCateg button:hover,
-.gestionProduit .modifCateg button:hover{
+.gestionProduit .modifCateg button:hover {
     cursor: pointer;
     background-color: lightskyblue;
 }
 
 .listCateg,
-.listProduit{
+.listProduit {
     margin-bottom: 50px;
+}
+
+.gestionProduit .flexform {
+    display: flex;
+    flex-direction: column;
+}
+
+.gestionProduit .flexform input,
+.gestionProduit .flexform select{
+    height: -webkit-fill-available;
 }
 
 .creationCateg,
@@ -121,10 +132,10 @@ footer{
 
 @keyframes shine {
     0% {
-      transform: skewX(-12deg) translateX(-200%);
+        transform: skewX(-12deg) translateX(-200%);
     }
-  
+
     100% {
-      transform: skewX(-12deg) translateX(200%);
+        transform: skewX(-12deg) translateX(200%);
     }
-  }
+}
