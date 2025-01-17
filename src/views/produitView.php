@@ -10,25 +10,31 @@
         <div class="creationProduit">
             <h2>Créer un produit</h2>
             <form action="index.php?action=createProduit" method="POST">
-                <label for="nom">Nom :</label>
-                <input type="text" name="nom" id="nom" required>
+                <div class="flexform">
+                    <label for="nom">Nom :</label>
+                    <input type="text" name="nom" id="nom" required>
+                </div>
+                <div class="flexform">
+                    <label for="description">Description :</label>
+                    <textarea name="description" id="description" required></textarea>
+                </div>
+                <div class="flexform">
+                    <label for="prix">Prix :</label>
+                    <input type="number" step="0.01" name="prix" id="prix" required>
+                </div>
+                <div class="flexform">
+                    <label for="stock">Stock :</label>
+                    <input type="number" name="stock" id="stock" required>
+                </div>
+                <div class="flexform">
+                    <label for="id_categorie">Catégorie :</label>
 
-                <label for="description">Description :</label>
-                <textarea name="description" id="description" required></textarea>
-
-                <label for="prix">Prix :</label>
-                <input type="number" step="0.01" name="prix" id="prix" required>
-
-                <label for="stock">Stock :</label>
-                <input type="number" name="stock" id="stock" required>
-
-                <label for="id_categorie">Catégorie :</label>
-                <select name="id_categorie" id="id_categorie" required>
-                    <?php foreach ($categories as $categorie): ?>
-                        <option value="<?= $categorie->getId(); ?>"><?= htmlspecialchars($categorie->getNom()); ?></option>
-                    <?php endforeach; ?>
-                </select>
-
+                    <select name="id_categorie" id="id_categorie" required>
+                        <?php foreach ($categories as $categorie): ?>
+                            <option value="<?= $categorie->getId(); ?>"><?= htmlspecialchars($categorie->getNom()); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
                 <button type="submit" name="submit">Créer le produit</button>
             </form>
         </div>
@@ -52,15 +58,15 @@
                             <?php foreach ($products as $product): ?>
                                 <tr>
                                     <td>
-                                        <input type="checkbox" 
-                                               name="products[]" 
-                                               value="<?= $product->getId(); ?>" 
-                                               data-nom="<?= htmlspecialchars($product->getNom()); ?>" 
-                                               data-description="<?= htmlspecialchars($product->getDescription()); ?>" 
-                                               data-prix="<?= htmlspecialchars($product->getPrix()); ?>" 
-                                               data-stock="<?= htmlspecialchars($product->getStock()); ?>" 
-                                               data-categorie="<?= htmlspecialchars($product->getIdCategorie()); ?>" 
-                                               onclick="handleSelection(this)">
+                                        <input type="checkbox"
+                                            name="products[]"
+                                            value="<?= $product->getId(); ?>"
+                                            data-nom="<?= htmlspecialchars($product->getNom()); ?>"
+                                            data-description="<?= htmlspecialchars($product->getDescription()); ?>"
+                                            data-prix="<?= htmlspecialchars($product->getPrix()); ?>"
+                                            data-stock="<?= htmlspecialchars($product->getStock()); ?>"
+                                            data-categorie="<?= htmlspecialchars($product->getIdCategorie()); ?>"
+                                            onclick="handleSelection(this)">
                                     </td>
                                     <td><?= htmlspecialchars($product->getNom()); ?></td>
                                     <td><?= htmlspecialchars($product->getDescription()); ?></td>
@@ -69,7 +75,9 @@
                                 </tr>
                             <?php endforeach; ?>
                         <?php else: ?>
-                            <tr><td colspan="5">Aucun produit trouvé.</td></tr>
+                            <tr>
+                                <td colspan="5">Aucun produit trouvé.</td>
+                            </tr>
                         <?php endif; ?>
                     </tbody>
                 </table>
@@ -83,25 +91,30 @@
         <div class="modifProduit" id="modifProduit" style="display: none;">
             <h2>Modifier un produit</h2>
             <form action="index.php?action=updateProduit" method="POST">
-                <label for="editNom">Nom :</label>
-                <input type="text" id="editNom" name="nom" required>
-
-                <label for="editDescription">Description :</label>
-                <textarea id="editDescription" name="description" required></textarea>
-
-                <label for="editPrix">Prix :</label>
-                <input type="number" step="0.01" id="editPrix" name="prix" required>
-
-                <label for="editStock">Stock :</label>
-                <input type="number" id="editStock" name="stock" required>
-
-                <label for="editCategorie">Catégorie :</label>
-                <select id="editCategorie" name="id_categorie" required>
-                    <?php foreach ($categories as $categorie): ?>
-                        <option value="<?= $categorie->getId(); ?>"><?= htmlspecialchars($categorie->getNom()); ?></option>
-                    <?php endforeach; ?>
-                </select>
-
+                <div class="flexform">
+                    <label for="editNom">Nom :</label>
+                    <input type="text" id="editNom" name="nom" required>
+                </div>
+                <div class="flexform">
+                    <label for="editDescription">Description :</label>
+                    <textarea id="editDescription" name="description" required></textarea>
+                </div>
+                <div class="flexform">
+                    <label for="editPrix">Prix :</label>
+                    <input type="number" step="0.01" id="editPrix" name="prix" required>
+                </div>
+                <div class="flexform">
+                    <label for="editStock">Stock :</label>
+                    <input type="number" id="editStock" name="stock" required>
+                </div>
+                <div class="flexform">
+                    <label for="editCategorie">Catégorie :</label>
+                    <select id="editCategorie" name="id_categorie" required>
+                        <?php foreach ($categories as $categorie): ?>
+                            <option value="<?= $categorie->getId(); ?>"><?= htmlspecialchars($categorie->getNom()); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
                 <input type="hidden" id="editId" name="id">
                 <button type="submit" name="update">
                     <img src="../public/assets/image/pencil.svg" alt="Modifier" style="width: 24px; height: 24px;">
