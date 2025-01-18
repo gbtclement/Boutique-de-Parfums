@@ -15,48 +15,6 @@ class Commande
         $this->statut = $statut;
     }
 
-    // Getters
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function getIdUtilisateur()
-    {
-        return $this->id_utilisateur;
-    }
-
-    public function getDateCommande()
-    {
-        return $this->date_commande;
-    }
-
-    public function getStatut()
-    {
-        return $this->statut;
-    }
-
-    // Setters
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    public function setIdUtilisateur($id_utilisateur)
-    {
-        $this->id_utilisateur = $id_utilisateur;
-    }
-
-    public function setDateCommande($date_commande)
-    {
-        $this->date_commande = $date_commande;
-    }
-
-    public function setStatut($statut)
-    {
-        $this->statut = $statut;
-    }
-
     // CRUD Methods
     // Create
     public function create(PDO $pdo)

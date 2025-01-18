@@ -76,9 +76,11 @@ switch ($action) {
         break;
 
     case 'compte':
+        header("Location: ../src/views/compte.php");
         break;
 
     case 'catalogue':
+        header("Location: ../src/views/catalogue.php");
         break;
 
     default:

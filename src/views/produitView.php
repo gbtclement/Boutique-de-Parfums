@@ -2,124 +2,126 @@
 
 <?php include 'header.php'; ?>
 
-<div class="marginPage">
-    <div class="gestionProduit">
-        <h1>Gestion des Produits</h1>
+<div class="container">
+    <div class="marginPage">
+        <div class="gestionProduit">
+            <h1>Gestion des Produits</h1>
 
-        <!-- Formulaire d'ajout -->
-        <div class="creationProduit">
-            <h2>Créer un produit</h2>
-            <form action="index.php?action=createProduit" method="POST">
-                <div class="flexform">
-                    <label for="nom">Nom :</label>
-                    <input type="text" name="nom" id="nom" required>
-                </div>
-                <div class="flexform">
-                    <label for="description">Description :</label>
-                    <textarea name="description" id="description" required></textarea>
-                </div>
-                <div class="flexform">
-                    <label for="prix">Prix :</label>
-                    <input type="number" step="0.01" name="prix" id="prix" required>
-                </div>
-                <div class="flexform">
-                    <label for="stock">Stock :</label>
-                    <input type="number" name="stock" id="stock" required>
-                </div>
-                <div class="flexform">
-                    <label for="id_categorie">Catégorie :</label>
+            <!-- Formulaire d'ajout -->
+            <div class="creationProduit">
+                <h2>Créer un produit</h2>
+                <form action="index.php?action=createProduit" method="POST">
+                    <div class="flexform">
+                        <label for="nom">Nom :</label>
+                        <input type="text" name="nom" id="nom" required>
+                    </div>
+                    <div class="flexform">
+                        <label for="description">Description :</label>
+                        <textarea name="description" id="description" required></textarea>
+                    </div>
+                    <div class="flexform">
+                        <label for="prix">Prix :</label>
+                        <input type="number" step="0.01" name="prix" id="prix" required>
+                    </div>
+                    <div class="flexform">
+                        <label for="stock">Stock :</label>
+                        <input type="number" name="stock" id="stock" required>
+                    </div>
+                    <div class="flexform">
+                        <label for="id_categorie">Catégorie :</label>
 
-                    <select name="id_categorie" id="id_categorie" required>
-                        <?php foreach ($categories as $categorie): ?>
-                            <option value="<?= $categorie->getId(); ?>"><?= htmlspecialchars($categorie->getNom()); ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                <button type="submit" name="submit">Créer le produit</button>
-            </form>
-        </div>
-
-        <!-- Liste des produits avec options de suppression -->
-        <div class="listProduit">
-            <h2>Supprimer ou modifier des produits</h2>
-            <form action="index.php?action=deleteProduit" method="POST" id="deleteForm">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Sélectionner</th>
-                            <th>Nom</th>
-                            <th>Description</th>
-                            <th>Prix</th>
-                            <th>Stock</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php if (!empty($products)): ?>
-                            <?php foreach ($products as $product): ?>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox"
-                                            name="products[]"
-                                            value="<?= $product->getId(); ?>"
-                                            data-nom="<?= htmlspecialchars($product->getNom()); ?>"
-                                            data-description="<?= htmlspecialchars($product->getDescription()); ?>"
-                                            data-prix="<?= htmlspecialchars($product->getPrix()); ?>"
-                                            data-stock="<?= htmlspecialchars($product->getStock()); ?>"
-                                            data-categorie="<?= htmlspecialchars($product->getIdCategorie()); ?>"
-                                            onclick="handleSelection(this)">
-                                    </td>
-                                    <td><?= htmlspecialchars($product->getNom()); ?></td>
-                                    <td><?= htmlspecialchars($product->getDescription()); ?></td>
-                                    <td><?= htmlspecialchars($product->getPrix()); ?> €</td>
-                                    <td><?= htmlspecialchars($product->getStock()); ?></td>
-                                </tr>
+                        <select name="id_categorie" id="id_categorie" required>
+                            <?php foreach ($categories as $categorie): ?>
+                                <option value="<?= $categorie->getId(); ?>"><?= htmlspecialchars($categorie->getNom()); ?></option>
                             <?php endforeach; ?>
-                        <?php else: ?>
-                            <tr>
-                                <td colspan="5">Aucun produit trouvé.</td>
-                            </tr>
-                        <?php endif; ?>
-                    </tbody>
-                </table>
-                <button type="submit" name="delete">
-                    <img src="../public/assets/image/trash.svg" alt="Supprimer" style="width: 24px; height: 24px;">
-                </button>
-            </form>
-        </div>
+                        </select>
+                    </div>
+                    <button type="submit" name="submit">Créer le produit</button>
+                </form>
+            </div>
 
-        <!-- Formulaire de modification -->
-        <div class="modifProduit" id="modifProduit" style="display: none;">
-            <h2>Modifier un produit</h2>
-            <form action="index.php?action=updateProduit" method="POST">
-                <div class="flexform">
-                    <label for="editNom">Nom :</label>
-                    <input type="text" id="editNom" name="nom" required>
-                </div>
-                <div class="flexform">
-                    <label for="editDescription">Description :</label>
-                    <textarea id="editDescription" name="description" required></textarea>
-                </div>
-                <div class="flexform">
-                    <label for="editPrix">Prix :</label>
-                    <input type="number" step="0.01" id="editPrix" name="prix" required>
-                </div>
-                <div class="flexform">
-                    <label for="editStock">Stock :</label>
-                    <input type="number" id="editStock" name="stock" required>
-                </div>
-                <div class="flexform">
-                    <label for="editCategorie">Catégorie :</label>
-                    <select id="editCategorie" name="id_categorie" required>
-                        <?php foreach ($categories as $categorie): ?>
-                            <option value="<?= $categorie->getId(); ?>"><?= htmlspecialchars($categorie->getNom()); ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                <input type="hidden" id="editId" name="id">
-                <button type="submit" name="update">
-                    <img src="../public/assets/image/pencil.svg" alt="Modifier" style="width: 24px; height: 24px;">
-                </button>
-            </form>
+            <!-- Liste des produits avec options de suppression -->
+            <div class="listProduit">
+                <h2>Supprimer ou modifier des produits</h2>
+                <form action="index.php?action=deleteProduit" method="POST" id="deleteForm">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Sélectionner</th>
+                                <th>Nom</th>
+                                <th>Description</th>
+                                <th>Prix</th>
+                                <th>Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if (!empty($products)): ?>
+                                <?php foreach ($products as $product): ?>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox"
+                                                name="products[]"
+                                                value="<?= $product->getId(); ?>"
+                                                data-nom="<?= htmlspecialchars($product->getNom()); ?>"
+                                                data-description="<?= htmlspecialchars($product->getDescription()); ?>"
+                                                data-prix="<?= htmlspecialchars($product->getPrix()); ?>"
+                                                data-stock="<?= htmlspecialchars($product->getStock()); ?>"
+                                                data-categorie="<?= htmlspecialchars($product->getIdCategorie()); ?>"
+                                                onclick="handleSelection(this)">
+                                        </td>
+                                        <td><?= htmlspecialchars($product->getNom()); ?></td>
+                                        <td><?= htmlspecialchars($product->getDescription()); ?></td>
+                                        <td><?= htmlspecialchars($product->getPrix()); ?> €</td>
+                                        <td><?= htmlspecialchars($product->getStock()); ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="5">Aucun produit trouvé.</td>
+                                </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                    <button type="submit" name="delete">
+                        <img src="../public/assets/image/trash.svg" alt="Supprimer" style="width: 24px; height: 24px;">
+                    </button>
+                </form>
+            </div>
+
+            <!-- Formulaire de modification -->
+            <div class="modifProduit" id="modifProduit" style="display: none;">
+                <h2>Modifier un produit</h2>
+                <form action="index.php?action=updateProduit" method="POST">
+                    <div class="flexform">
+                        <label for="editNom">Nom :</label>
+                        <input type="text" id="editNom" name="nom" required>
+                    </div>
+                    <div class="flexform">
+                        <label for="editDescription">Description :</label>
+                        <textarea id="editDescription" name="description" required></textarea>
+                    </div>
+                    <div class="flexform">
+                        <label for="editPrix">Prix :</label>
+                        <input type="number" step="0.01" id="editPrix" name="prix" required>
+                    </div>
+                    <div class="flexform">
+                        <label for="editStock">Stock :</label>
+                        <input type="number" id="editStock" name="stock" required>
+                    </div>
+                    <div class="flexform">
+                        <label for="editCategorie">Catégorie :</label>
+                        <select id="editCategorie" name="id_categorie" required>
+                            <?php foreach ($categories as $categorie): ?>
+                                <option value="<?= $categorie->getId(); ?>"><?= htmlspecialchars($categorie->getNom()); ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <input type="hidden" id="editId" name="id">
+                    <button type="submit" name="update">
+                        <img src="../public/assets/image/pencil.svg" alt="Modifier" style="width: 24px; height: 24px;">
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
