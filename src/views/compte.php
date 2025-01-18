@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: src/views/connexion.php");
+    header("Location: ../../public/index.php?action=connexionUtilisateur");
     exit(); 
 }
 

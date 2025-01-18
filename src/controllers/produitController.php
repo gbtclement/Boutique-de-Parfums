@@ -2,9 +2,7 @@
 
 include __DIR__ . '/../database/database.php';
 include __DIR__ . '/../models/produitModel.php';
-include_once __DIR__ . '/../models/categorieModel.php'; // Utilise include_once
- // Ajout de l'inclusion du modèle Categorie
-
+include_once __DIR__ . '/../models/categorieModel.php';
 $success = null;
 $error = null;
 

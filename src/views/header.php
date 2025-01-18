@@ -16,13 +16,13 @@ session_start(); // Doit être au début
     <header>
         <div class="menu">
             <div class="navigation" id="navigation">
-                <a href="../src/views/accueil.php" class="icon svg">
+                <a href="index.php?action=home" class="icon svg">
                 <img src="../public/assets/image/home.svg" alt="Supprimer" style="width: 30px; height: 30px; display:flex;">
                 </a>
-                <a href="../catalogue.php" class="icon svg">
+                <a href="index.php?action=catalogue" class="icon svg">
                 <img src="../public/assets/image/catalogue.svg" alt="Supprimer" style="width: 30px; height: 30px; display:flex;">
                 </a>
-                <a href="../compte.php" class="icon svg">
+                <a href="index.php?action=compte" class="icon svg">
                 <img src="../public/assets/image/account.svg" alt="Supprimer" style="width: 30px; height: 30px; display:flex;">
                 </a>
 
