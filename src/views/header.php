@@ -1,7 +1,3 @@
-<?php
-session_start(); // Doit être au début
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -22,7 +18,7 @@ session_start(); // Doit être au début
                 <a href="index.php?action=catalogue" class="icon svg">
                 <img src="../public/assets/image/catalogue.svg" alt="Supprimer" style="width: 30px; height: 30px; display:flex;">
                 </a>
-                <a href="index.php?action=compte" class="icon svg">
+                <a href="index.php?action=connexionUtilisateur" class="icon svg">
                 <img src="../public/assets/image/account.svg" alt="Supprimer" style="width: 30px; height: 30px; display:flex;">
                 </a>
 

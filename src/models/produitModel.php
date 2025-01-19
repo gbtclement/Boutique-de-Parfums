@@ -20,6 +20,78 @@ class Produit
         $this->id_categorie = $id_categorie;
     }
 
+     // Getter pour l'id
+     public function getId()
+     {
+         return $this->id;
+     }
+ 
+     // Setter pour l'id
+     public function setId($id)
+     {
+         $this->id = $id;
+     }
+ 
+     // Getter pour le nom
+     public function getNom()
+     {
+         return $this->nom;
+     }
+ 
+     // Setter pour le nom
+     public function setNom($nom)
+     {
+         $this->nom = $nom;
+     }
+ 
+     // Getter pour la description
+     public function getDescription()
+     {
+         return $this->description;
+     }
+ 
+     // Setter pour la description
+     public function setDescription($description)
+     {
+         $this->description = $description;
+     }
+ 
+     // Getter pour le prix
+     public function getPrix()
+     {
+         return $this->prix;
+     }
+ 
+     // Setter pour le prix
+     public function setPrix($prix)
+     {
+         $this->prix = $prix;
+     }
+ 
+     // Getter pour le stock
+     public function getStock()
+     {
+         return $this->stock;
+     }
+ 
+     // Setter pour le stock
+     public function setStock($stock)
+     {
+         $this->stock = $stock;
+     }
+ 
+     // Getter pour l'id_categorie
+     public function getIdCategorie()
+     {
+         return $this->id_categorie;
+     }
+ 
+     // Setter pour l'id_categorie
+     public function setIdCategorie($id_categorie)
+     {
+         $this->id_categorie = $id_categorie;
+     }
+
     // CRUD Methods
     // Create
     public function createProduct(PDO $pdo)

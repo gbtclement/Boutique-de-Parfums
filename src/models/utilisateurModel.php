@@ -20,6 +20,78 @@ class Utilisateur
         $this->role = $role;
     }
 
+    // Getter pour l'id
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    // Setter pour l'id
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    // Getter pour le nom
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    // Setter pour le nom
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+    // Getter pour le prenom
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    // Setter pour le prenom
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+    }
+
+    // Getter pour l'email
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    // Setter pour l'email
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    // Getter pour le mot_de_passe
+    public function getMotDePasse()
+    {
+        return $this->mot_de_passe;
+    }
+
+    // Setter pour le mot_de_passe
+    public function setMotDePasse($mot_de_passe)
+    {
+        $this->mot_de_passe = $mot_de_passe;
+    }
+
+    // Getter pour le role
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    // Setter pour le role
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
+
     // CRUD Methods
     // Create
     public function createUtilisateur(PDO $pdo)

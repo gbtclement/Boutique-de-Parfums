@@ -17,8 +17,10 @@
                     <input type="password" name="mot_de_passe" id="mot_de_passe" required>
                 </div>
 
-                <button type="submit">Se connecter</button>
-                <a href="index.php?action=inscriptionUtilisateur">S'inscrire</a>
+                <div class="flexbutton">
+                    <button type="submit">Se connecter</button>
+                    <a class="button " href="index.php?action=inscriptionUtilisateur">S'inscrire</a>
+                </div>
             </form>
         </div>
     </div>

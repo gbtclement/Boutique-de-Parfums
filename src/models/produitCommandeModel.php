@@ -18,6 +18,66 @@ class CommandeProduit
         $this->prix_unitaire = $prix_unitaire;
     }
 
+    // Getter pour l'id
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    // Setter pour l'id
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    // Getter pour l'id_commande
+    public function getIdCommande()
+    {
+        return $this->id_commande;
+    }
+
+    // Setter pour l'id_commande
+    public function setIdCommande($id_commande)
+    {
+        $this->id_commande = $id_commande;
+    }
+
+    // Getter pour l'id_produit
+    public function getIdProduit()
+    {
+        return $this->id_produit;
+    }
+
+    // Setter pour l'id_produit
+    public function setIdProduit($id_produit)
+    {
+        $this->id_produit = $id_produit;
+    }
+
+    // Getter pour la quantite
+    public function getQuantite()
+    {
+        return $this->quantite;
+    }
+
+    // Setter pour la quantite
+    public function setQuantite($quantite)
+    {
+        $this->quantite = $quantite;
+    }
+
+    // Getter pour le prix_unitaire
+    public function getPrixUnitaire()
+    {
+        return $this->prix_unitaire;
+    }
+
+    // Setter pour le prix_unitaire
+    public function setPrixUnitaire($prix_unitaire)
+    {
+        $this->prix_unitaire = $prix_unitaire;
+    }
+
     // CRUD Methods
     // Create
     public function create(PDO $pdo)
