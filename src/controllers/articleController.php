@@ -22,7 +22,7 @@ class ArticleController {
         $tags = isset($_POST['tags']) ? explode(',', $_POST['tags']) : [];
 
         // Appeler la méthode du modèle pour insérer l'article
-        addArticleToDB($titre, $contenu, $auteur, $tags);
+        createArticle($titre, $contenu, $auteur, $tags);
     }
 
     // Lister tous les articles

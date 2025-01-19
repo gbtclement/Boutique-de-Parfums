@@ -12,25 +12,8 @@ function connectToMongoDB() {
     }
 }
 
-// Ajouter un article à la base de données
-function addArticleToDB($titre, $contenu, $auteur, $tags) {
-    $db = connectToMongoDB();
-    $articlesCollection = $db->articles;
-    
-    $article = [
-        'titre' => $titre,
-        'contenu' => $contenu,
-        'auteur' => $auteur,
-        'date_creation' => new MongoDB\BSON\UTCDateTime(),
-        'tags' => $tags
-    ];
-
-    $articlesCollection->insertOne($article);
-}
-
-// Récupérer tous les articles de la base de données
-function getAllArticles()
-{
+// Fonction pour lister les articles
+function listArticles() {
     $collection = connectToMongoDB()->articles;
     $articles = $collection->find();
 
@@ -41,5 +24,93 @@ function getAllArticles()
     }
 
     return $articlesArray;
+}
+
+// Fonction pour créer un nouvel article
+function createArticle($titre, $contenu, $auteur, $tags) {
+    $db = connectToMongoDB();
+    $articlesCollection = $db->articles;
+
+    $article = [
+        'titre' => $titre,
+        'contenu' => $contenu,
+        'auteur' => $auteur,
+        'date_creation' => new MongoDB\BSON\UTCDateTime(),
+        'tags' => $tags
+    ];
+
+    try {
+        $result = $articlesCollection->insertOne($article);
+        echo "Article créé avec succès. ID : " . $result->getInsertedId() . "\n";
+    } catch (Exception $e) {
+        echo "Erreur lors de la création de l'article : " . $e->getMessage();
+    }
+}
+
+// Fonction pour mettre à jour un article
+function updateArticle($id, $updatedFields) {
+    $db = connectToMongoDB();
+    $articlesCollection = $db->articles;
+
+    try {
+        $result = $articlesCollection->updateOne(
+            ['_id' => new MongoDB\BSON\ObjectId($id)],
+            ['$set' => $updatedFields]
+        );
+
+        if ($result->getMatchedCount() > 0) {
+            echo "Article mis à jour avec succès.\n";
+        } else {
+            echo "Aucun article trouvé avec cet ID.\n";
+        }
+    } catch (Exception $e) {
+        echo "Erreur lors de la mise à jour de l'article : " . $e->getMessage();
+    }
+}
+
+// Fonction pour supprimer un article
+function deleteArticle($id) {
+    $db = connectToMongoDB();
+    $articlesCollection = $db->articles;
+
+    try {
+        $result = $articlesCollection->deleteOne(['_id' => new MongoDB\BSON\ObjectId($id)]);
+        
+        if ($result->getDeletedCount() > 0) {
+            echo "Article supprimé avec succès.\n";
+        } else {
+            echo "Aucun article trouvé avec cet ID.\n";
+        }
+    } catch (Exception $e) {
+        echo "Erreur lors de la suppression de l'article : " . $e->getMessage();
+    }
+}
+
+function getAllArticles() {
+    try {
+        $db = connectToMongoDB(); // Connexion à la base de données
+        $articlesCollection = $db->articles; // Accéder à la collection "articles"
+        
+        // Récupérer tous les articles
+        $articles = $articlesCollection->find();
+        
+        $articlesArray = [];
+        foreach ($articles as $article) {
+            // Convertir les données BSON en format lisible
+            $articlesArray[] = [
+                '_id' => (string)$article['_id'], // Convertir ObjectId en chaîne
+                'titre' => $article['titre'],
+                'contenu' => $article['contenu'],
+                'auteur' => $article['auteur'],
+                'date_creation' => $article['date_creation']->toDateTime()->format('Y-m-d H:i:s'),
+                'tags' => isset($article['tags']) ? (array)$article['tags'] : []
+            ];
+        }
+
+        return $articlesArray;
+    } catch (Exception $e) {
+        echo "Erreur lors de la récupération des articles : " . $e->getMessage();
+        return [];
+    }
 }
 

@@ -8,9 +8,8 @@ require_once '../src/controllers/utilisateurController.php';
 require_once '../src/controllers/articleController.php';
 require_once '../src/controllers/compteController.php';
 
-//new ArticleController();
-
-//use src\controllers\MongoController;
+new ArticleController();
+use src\controllers\MongoController;
 
 // Récupérer l'action depuis l'URL
 $action = $_GET['action'] ?? 'home';
@@ -77,21 +76,21 @@ switch ($action) {
         deleteProduct($pdo);
         break;
 
-        /*case 'listArticle':
-        listArticles($pdo);
+    case 'listArticle':
+        listArticles();
         break;
     
     case 'createArticle':
-        createArticle($pdo);
+        createArticle($titre, $contenu, $auteur, $tags);
         break;
     
     case 'updateArticle':
-        updateArticle($pdo);
+        updateArticle($id, $updatedFields);
         break;
     
     case 'deleteArticle':
-        deleteArticle($pdo);
-        break;*/
+        deleteArticle($id);
+        break;
 
     case 'connexionUtilisateur':
         if (isset($_SESSION['user_id'])) {

@@ -10,9 +10,9 @@ class MongoController
 
     public function __construct()
     {
-        $uri = "mongodb://admin:admin@localhost:27017/admin";
+        $url = "mongodb://admin:admin@localhost:27017/admin";
         $dbName = "boutiqueDeParfums"; 
-        $this->connection = new MongoConnection($uri, $dbName);
+        $this->connection = new MongoConnection($url, $dbName);
     }
 
     public function testConnection()
