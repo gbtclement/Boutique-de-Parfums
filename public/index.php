@@ -6,7 +6,6 @@ require_once '../src/controllers/categorieController.php';
 require_once '../src/controllers/produitController.php';
 require_once '../src/controllers/utilisateurController.php';
 require_once '../src/controllers/articleController.php';
-require_once '../src/controllers/catalogueController.php';
 require_once '../src/controllers/compteController.php';
 
 //new ArticleController();
@@ -113,7 +112,7 @@ switch ($action) {
         break;
 
     case 'catalogue':
-        connectCatalogue($pdo);
+        header("Location: ../src/views/catalogue.php");
         break;
 
     default:
