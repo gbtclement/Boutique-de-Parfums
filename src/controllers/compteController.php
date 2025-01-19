@@ -22,6 +22,7 @@ function adminUser() {
     echo '<div class="admin-links">';
     echo '<a href="index.php?action=listCategorie" class="admin-link">Gérer les catégories</a>';
     echo '<a href="index.php?action=listProduit" class="admin-link">Gérer les produits</a>';
+    echo '<a href="index.php?action=listArticle" class="admin-link">Gérer les articles</a>';
     echo '</div>';
     echo '</div>';
 }

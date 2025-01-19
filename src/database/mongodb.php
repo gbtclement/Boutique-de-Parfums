@@ -1,6 +1,6 @@
 <?php
 
-require 'D:\xammp\htdocs\Boutique-de-Parfums-main\vendor/autoload.php';  // Assurez-vous que le chemin est correct
+require 'D:\xammp\htdocs\Boutique-de-Parfums-main\vendor/autoload.php'; 
 
 $client = new MongoDB\Client("mongodb://admin:admin@127.0.0.1:27017");
 
