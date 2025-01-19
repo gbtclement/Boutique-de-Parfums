@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -39,11 +43,10 @@
                         Des parfums d'exception pour des moments inoubliables
                     </p>
                     </br>
-                    <a class="button" href="catalogue.php">Explorer</a>
+                    </br>
+                    </br>
+                    <a class="button" href="../../public/index.php?action=catalogue">Explorer</a>
                 </div>
-                </br>
-                <a href="../../public/index.php?action=listCategorie" class="compte option admin">Gestion des catégories</a>
-                <a href="../../public/index.php?action=listProduit" class="compte option admin">Gestion des produits</a>
             </div>
         </div>
     </div>

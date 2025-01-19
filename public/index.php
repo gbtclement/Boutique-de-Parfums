@@ -1,16 +1,43 @@
 <?php
+session_start();
+
 // Inclure les dépendances
 require_once '../src/controllers/categorieController.php';
 require_once '../src/controllers/produitController.php';
 require_once '../src/controllers/utilisateurController.php';
 require_once '../src/controllers/articleController.php';
+require_once '../src/controllers/catalogueController.php';
+require_once '../src/controllers/compteController.php';
 
-new ArticleController();
+//new ArticleController();
 
-use src\controllers\MongoController;
+//use src\controllers\MongoController;
 
 // Récupérer l'action depuis l'URL
 $action = $_GET['action'] ?? 'home';
+
+if (isset($_SESSION['user_id'])) {
+    $utilisateur = Utilisateur::readUtilisateur($pdo, $_SESSION['user_id']);
+    if ($utilisateur->getRole() === 'client') {
+        switch ($action) {
+            case 'listCategorie':
+            case 'createCategorie':
+            case 'updateCategorie':
+            case 'deleteCategorie':
+            case 'listProduit':
+            case 'createProduit':
+            case 'updateProduit':
+            case 'deleteProduit':
+            case 'listArticle':
+            case 'createArticle':
+            case 'updateArticle':
+            case 'deleteArticle':
+                header("Location: ../src/views/accueil.php");
+                exit();
+                break;
+        }
+    }
+}
 
 // Routage des actions
 switch ($action) {
@@ -51,7 +78,7 @@ switch ($action) {
         deleteProduct($pdo);
         break;
 
-    case 'listArticle':
+        /*case 'listArticle':
         listArticles($pdo);
         break;
     
@@ -65,26 +92,31 @@ switch ($action) {
     
     case 'deleteArticle':
         deleteArticle($pdo);
-        break;
+        break;*/
 
     case 'connexionUtilisateur':
-        loginUser($pdo);
+        if (isset($_SESSION['user_id'])) {
+            header("Location: index.php?action=compte");
+            exit(); // Assurez-vous de quitter après la redirection
+        } else {
+            loginUser($pdo);
+        }
         break;
+
 
     case 'inscriptionUtilisateur':
         registerUser($pdo);
         break;
 
     case 'compte':
-        header("Location: ../src/views/compte.php");
+        showAccount($pdo);
         break;
 
     case 'catalogue':
-        header("Location: ../src/views/catalogue.php");
+        connectCatalogue($pdo);
         break;
 
     default:
         echo "Action inconnue.";
         break;
 }
-?>

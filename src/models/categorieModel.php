@@ -12,6 +12,30 @@ class Categorie
         $this->nom = $nom;
     }
 
+        // Getter pour l'id
+        public function getId()
+        {
+            return $this->id;
+        }
+    
+        // Setter pour l'id
+        public function setId($id)
+        {
+            $this->id = $id;
+        }
+    
+        // Getter pour le nom
+        public function getNom()
+        {
+            return $this->nom;
+        }
+    
+        // Setter pour le nom
+        public function setNom($nom)
+        {
+            $this->nom = $nom;
+        }
+
     // CRUD Methods
     
     // Create
